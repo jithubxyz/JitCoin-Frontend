@@ -1,0 +1,31 @@
+{
+  "name": "jitcoin-frontend",
+  "version": "1.0.0",
+  "description": "The Frontend of the JitCoin application, written in TypeScript",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "lint": "tslint -c tslint.json -p tsconfig.json",
+    "start": "npm run build && electron ./dist/main.js"
+  },
+  "repository": "https://github.com/electron/electron-quick-start-typescript",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo",
+    "typescript"
+  ],
+  "author": "Dominik Reh, Jan Kolb",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^4.0.3",
+    "tslint": "^5.12.1",
+    "typescript": "^3.2.4"
+  },
+  "dependencies": {
+    "@types/jquery": "^3.3.29",
+    "jquery": "^3.3.1"
+  }
+}

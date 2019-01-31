@@ -1,0 +1,40 @@
+/* Grid Areas */
+.grid-container {
+    display: grid;
+    grid-template-columns: 230px 1fr;
+    grid-template-rows: 50px 1fr 20px;
+    grid-template-areas:"headbar-left headbar-right" 
+                        "sidebar main"
+                        "footer-left footer-right";
+    width: 100%;
+    height: 100%;
+}
+.headbar-left {
+     grid-area: headbar-left;
+     background-color: aquamarine;
+}
+.headbar-right {
+    grid-area: headbar-right; 
+    background-color: aqua;
+}
+.sidebar {
+    grid-area: sidebar; 
+    background-color: cadetblue;
+}
+.main {
+    grid-area: main;
+}
+.footer-left { 
+    grid-area: footer-left;
+    background-color: cornflowerblue
+}
+.footer-right {
+    grid-area: footer-right;
+    background-color: dodgerblue;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
