@@ -20,12 +20,13 @@
   "author": "Dominik Reh, Jan Kolb",
   "license": "CC0-1.0",
   "devDependencies": {
+    "@types/jquery": "^3.3.29",
+    "@types/node": "^10.12.21",
     "electron": "^4.0.3",
     "tslint": "^5.12.1",
     "typescript": "^3.2.4"
   },
   "dependencies": {
-    "@types/jquery": "^3.3.29",
     "jquery": "^3.3.1"
   }
 }

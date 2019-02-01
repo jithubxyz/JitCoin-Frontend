@@ -1,3 +1,3 @@
 # JitCoin-Frontend
 
-`npm install` to install, `npm start` to start
+`yarn` to install, `yarn start` to start
