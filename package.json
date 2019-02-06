@@ -8,15 +8,6 @@
     "lint": "tslint -c tslint.json -p tsconfig.json",
     "start": "npm run build && electron ./dist/main.js"
   },
-  "repository": "https://github.com/electron/electron-quick-start-typescript",
-  "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo",
-    "typescript"
-  ],
   "author": "Dominik Reh, Jan Kolb",
   "license": "CC0-1.0",
   "devDependencies": {
@@ -27,6 +18,9 @@
     "typescript": "^3.2.4"
   },
   "dependencies": {
-    "jquery": "^3.3.1"
-  }
+    "@stencil/core": "^0.17.2",
+    "jquery": "^3.3.1",
+    "stencil": "^0.0.5"
+  },
+  "main": "index.js"
 }
