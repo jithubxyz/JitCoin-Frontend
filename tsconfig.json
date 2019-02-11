@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "module": "commonjs",
+    "target": "es2018",
     "noImplicitAny": true,
     "sourceMap": true,
     "outDir": "dist",
@@ -11,5 +12,9 @@
   },
   "include": [
     "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
   ]
 }

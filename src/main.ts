@@ -8,6 +8,7 @@ function createWindow() {
   mainWindow = new BrowserWindow({
     height: 600,
     width: 800,
+    // tslint:disable-next-line:object-literal-sort-keys
     webPreferences: {
       nodeIntegration: true,
     },

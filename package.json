@@ -11,16 +11,12 @@
   "author": "Dominik Reh, Jan Kolb",
   "license": "CC0-1.0",
   "devDependencies": {
-    "@types/jquery": "^3.3.29",
-    "@types/node": "^10.12.21",
-    "electron": "^4.0.3",
+    "@types/node": "^10.12.24",
+    "electron": "^4.0.4",
+    "electron-packager": "^13.0.1",
     "tslint": "^5.12.1",
-    "typescript": "^3.2.4"
+    "typescript": "^3.3.3"
   },
-  "dependencies": {
-    "@stencil/core": "^0.17.2",
-    "jquery": "^3.3.1",
-    "stencil": "^0.0.5"
-  },
-  "main": "index.js"
+  "main": "index.js",
+  "dependencies": {}
 }
