@@ -1,123 +1,44 @@
-## Install
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-* **Note: requires a node version >= 6 and an npm version >= 3.**
-* **If you have installation or compilation issues with this project, please see [this debugging guide](https://github.com/chentsulin/electron-react-boilerplate/issues/400)**
+## Available Scripts
 
-```bash
-$ yarn install
-```
+In the project directory, you can run:
 
-:bulb: *In order to remove boilerplate sample code, simply run `npm run cleanup`. After this is run, the initial sample boilerplate code will be removed in order for a clean project for starting custom dev*
+### `npm start`
 
-## Run
+Runs the app in the development mode.<br>
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-Run these two commands __simultaneously__ in different console tabs.
+The page will reload if you make edits.<br>
+You will also see any lint errors in the console.
 
-```bash
-$ yarn run hot-server
-$ yarn run start-hot
-```
+### `npm test`
 
-or run two servers with one command
+Launches the test runner in the interactive watch mode.<br>
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-```bash
-$ yarn run dev
-```
+### `npm run build`
 
-## DevTools
+Builds the app for production to the `build` folder.<br>
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-#### Toggle Chrome DevTools
+The build is minified and the filenames include the hashes.<br>
+Your app is ready to be deployed!
 
-- OS X: <kbd>Cmd</kbd> <kbd>Alt</kbd> <kbd>I</kbd> or <kbd>F12</kbd>
-- Linux: <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>I</kbd> or <kbd>F12</kbd>
-- Windows: <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>I</kbd> or <kbd>F12</kbd>
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-*See [electron-debug](https://github.com/sindresorhus/electron-debug) for more information.*
+### `npm run eject`
 
-#### DevTools extension
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-This boilerplate is included following DevTools extensions:
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-* [Devtron](https://github.com/electron/devtron) - Install via [electron-debug](https://github.com/sindresorhus/electron-debug).
-* [React Developer Tools](https://github.com/facebook/react-devtools) - Install via [electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer).
-* [Redux DevTools](https://github.com/zalmoxisus/redux-devtools-extension) - Install via [electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer).
+Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You can find the tabs on Chrome DevTools.
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-If you want to update extensions version, please set `UPGRADE_EXTENSIONS` env, just run:
+## Learn More
 
-```bash
-$ UPGRADE_EXTENSIONS=1 npm run dev
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-# For Windows
-$ set UPGRADE_EXTENSIONS=1 && npm run dev
-```
-
-
-
-## CSS Modules
-
-This boilerplate out of the box is configured to use [css-modules](https://github.com/css-modules/css-modules).
-
-All `.css` file extensions will use css-modules unless it has `.global.css`.
-
-If you need global styles, stylesheets with `.global.css` will not go through the
-css-modules loader. e.g. `app.global.css`
-
-If you want to import global css libraries (like `bootstrap`), you can just write the following code in `.global.css`:
-
-```css
-@import "~bootstrap/dist/css/bootstrap.css";
-```
-
-
-## Packaging
-
-To package apps for the local platform:
-
-```bash
-$ npm run package
-```
-
-To package apps for all platforms:
-
-First, refer to [Multi Platform Build](https://github.com/electron-userland/electron-builder/wiki/Multi-Platform-Build) for dependencies.
-
-Then,
-```bash
-$ npm run package-all
-```
-
-To package apps with options:
-
-```bash
-$ npm run package -- --[option]
-```
-
-## Further commands
-
-To run the application without packaging run
-
-```bash
-$ npm run build
-$ npm start
-```
-
-To run End-to-End Test
-
-```bash
-$ npm run build
-$ npm run test-e2e
-```
-
-#### Options
-
-See [electron-builder CLI Usage](https://github.com/electron-userland/electron-builder#cli-usage)
-
-#### Module Structure
-
-This boilerplate uses a [two package.json structure](https://github.com/electron-userland/electron-builder#two-packagejson-structure).
-
-1. If the module is native to a platform or otherwise should be included with the published package (i.e. bcrypt, openbci), it should be listed under `dependencies` in `./app/package.json`.
-2. If a module is `import`ed by another module, include it in `dependencies` in `./package.json`.   See [this ESLint rule](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-extraneous-dependencies.md).
-3. Otherwise, modules used for building, testing and debugging should be included in `devDependencies` in `./package.json`.
+To learn React, check out the [React documentation](https://reactjs.org/).
