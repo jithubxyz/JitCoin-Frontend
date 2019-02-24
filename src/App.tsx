@@ -1,9 +1,7 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
+let styles = require('./App.scss');
 
-let styles = require('./Home.scss');
-
-export default class Home extends React.Component {
+export default class App extends React.Component {
   render() {
     return (
     <div className={styles.gridContainer}>
@@ -17,16 +15,7 @@ export default class Home extends React.Component {
 
       </div>
       <div className={styles.main}>
-        We are using Node.js <script>
-          document.write(process.versions.node)
-        </script>,
-        Chromium <script>
-          document.write(process.versions.chrome)
-        </script>,
-        and Electron <script>
-          document.write(process.versions.electron)
-        </script>
-        <Link to="/counter">to Counter</Link>
+        Put the stuff here
       </div>
       
       <div className={styles.footerRight}>

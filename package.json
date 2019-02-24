@@ -2,23 +2,19 @@
   "name": "app",
   "version": "0.1.0",
   "private": true,
-  "main": "public/main.ts",
-  "dependencies": {
-    "@types/jest": "24.0.6",
-    "@types/node": "11.9.4",
-    "@types/react": "16.8.3",
-    "@types/react-dom": "16.8.2",
-    "electron-is-dev": "^1.0.1",
-    "react": "^16.8.2",
-    "react-dom": "^16.8.2",
-    "react-scripts": "2.1.5",
-    "typescript": "3.3.3"
-  },
+  "main": "entrypoint.js",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "start:no-browser": "cross-env BROWSER=none yarn start",
+    "start:listen": "wait-on http://localhost:3000",
+    "start:compile": "electron .",
+    "sass:build": "node-sass-chokidar src/ -o src/ --output-style compressed",
+    "sass:watch": "node-sass-chokidar src/ -o src/ -w --source-map true --source-map-contents sass",
+    "sass": "yarn sass:build && yarn sass:watch",
+    "dev": "concurrently \"yarn sass\" \"yarn start:no-browser\" \"yarn start:listen && yarn start:compile\""
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -29,10 +25,29 @@
     "not ie <= 11",
     "not op_mini all"
   ],
+  "dependencies": {
+    "@types/electron-devtools-installer": "^2.2.0",
+    "@types/electron-is-dev": "^0.3.0",
+    "@types/jest": "24.0.6",
+    "@types/node": "11.9.4",
+    "@types/react": "16.8.3",
+    "@types/react-dom": "16.8.2",
+    "electron-devtools-installer": "^2.2.4",
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2",
+    "react-scripts": "2.1.5",
+    "typescript": "3.3.3"
+  },
   "devDependencies": {
     "concurrently": "^4.1.0",
+    "cross-env": "^5.2.0",
     "electron": "^4.0.5",
     "electron-builder": "^20.38.5",
+    "electron-compile": "^6.4.4",
+    "electron-compilers": "^5.9.0",
+    "electron-is-dev": "^1.0.1",
+    "node-sass": "^4.11.0",
+    "node-sass-chokidar": "^1.3.4",
     "wait-on": "^3.2.0"
   }
 }
