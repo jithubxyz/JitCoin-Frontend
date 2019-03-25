@@ -1,21 +1,22 @@
 import * as React from 'react';
+import App, { AppState, SelectionProps } from "../App";
 let styles = require('../App.scss');
 
-// The props for the GameComponents
-export interface GameProp {
-    uid: string;
-    onClick: Function;
-}
-
-export default class Sidebar extends React.Component {
+export default class Sidebar extends React.Component<AppState> {
     // TODO: Sidebar constructor gets API data of current games in an object array
     constructor(props: any) {
         super(props);
+        this.handleSelection = this.handleSelection.bind(this);
     }
 
-    // Click handler for each individual GameComponent
+    handleSelection(e: any) {
+        this.props.handleSelectionChange(e.target.value)
+    }
+
     handleClick(id: string) {
         console.log("Wowee, id="+ id);
+        this.setState({selected: id});
+        this.handleSelection(id);
     }
 
     // Adds a new GameComponent, TODO: generated from this.props
@@ -37,7 +38,7 @@ export default class Sidebar extends React.Component {
     }
 }
 
-class GameComponent extends React.Component<GameProp> {
+class GameComponent extends React.Component<SelectionProps> {
     render() {
         return (
             <button className={styles.GameComponent} onClick={() => this.props.onClick()}>
