@@ -1,5 +1,6 @@
 import * as React from 'react';
 import App, { AppState, SelectionProps } from "../App";
+import ReactDOM from 'react-dom';
 let styles = require('../App.scss');
 
 export default class Sidebar extends React.Component<AppState> {
@@ -9,22 +10,23 @@ export default class Sidebar extends React.Component<AppState> {
         this.handleSelection = this.handleSelection.bind(this);
     }
 
-    handleSelection(e: any) {
-        this.props.handleSelectionChange(e.target.value)
+    handleSelection(id: string, name: string) {
+        this.props.handleSelection(id, name)
     }
 
-    handleClick(id: string) {
+    handleClick(id: string,name: string) {
         console.log("Wowee, id="+ id);
         this.setState({selected: id});
-        this.handleSelection(id);
+        this.handleSelection(id, name);
     }
 
     // Adds a new GameComponent, TODO: generated from this.props
-    addGameComponent(id: string) {
+    addGameComponent(id: string, name: string) {
         return (
             <GameComponent 
                 uid={id}
-                onClick={() => this.handleClick(id)}
+                name={name}
+                onSelect={() => this.handleClick(id, name)}
             />
         );
     }
@@ -32,7 +34,8 @@ export default class Sidebar extends React.Component<AppState> {
     render() {
         return (
             <div className={styles.sidebar}>
-                {this.addGameComponent("test")}
+                {this.addGameComponent("1","name")}
+                {this.addGameComponent("2","name2")}
             </div>
         );
     }
@@ -41,9 +44,12 @@ export default class Sidebar extends React.Component<AppState> {
 class GameComponent extends React.Component<SelectionProps> {
     render() {
         return (
-            <button className={styles.GameComponent} onClick={() => this.props.onClick()}>
-                ID={this.props.uid}
-            </button>
+            <React.Fragment>
+                <p>Name: {this.props.name}</p>
+                <button className={styles.TODO} onClick={() => this.props.onSelect()}>
+                    {this.props.name}
+                </button>
+            </React.Fragment>
         );
     }
 }

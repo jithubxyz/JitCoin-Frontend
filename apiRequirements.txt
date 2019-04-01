@@ -1,0 +1,14 @@
+User-Info
+	id
+	kontostand
+
+Laufende Spiele -> müssen als node-liste an react witergeleitet werden
+	id
+	name/typ
+	einsatz
+	gewinn
+	andere teilnehmer
+	momentaner zug
+		anhand dessen: verbleibende züge
+		action check (darf der spieler gerade ziehen?)
+	history (aus der chain?)

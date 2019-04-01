@@ -1,34 +1,37 @@
 import * as React from 'react';
 import Sidebar from './components/sidebar';
-import GameProps from './components/sidebar';
 import MainView from './components/mainView';
-import { string } from 'prop-types';
 
 let styles = require('./App.scss');
 
 export type AppState = {
-    selected?: string;
-    handleSelectionChange: Function;
+    selectedId: string;
+    selectedName: string;
+    handleSelection: Function;
 }
 
 export interface SelectionProps {
     uid: string;
-    onClick: Function;
+    name: string;
+    onSelect: Function;
 }
 
 
 export default class App extends React.Component {
     constructor(props: any) {
         super(props);
+        this.handleSelectionChange = this.handleSelectionChange.bind(this)
     }
 
     public readonly state: AppState = {
-        selected: "",
-        handleSelectionChange: this.handleSelectionChange.bind(this)
+        selectedId: "",
+        selectedName: "",
+        handleSelection: this.handleSelectionChange
     }
 
-    handleSelectionChange(id: string) {
-        this.setState({selected: id});
+    handleSelectionChange(id: string, name: string) {
+        this.setState({selectedId: id});
+        this.setState({selectedName: name})
     }
 
     render() {
@@ -41,8 +44,8 @@ export default class App extends React.Component {
 
                 </div>
 
-                <Sidebar />
-                <MainView selected={this.state.selected} />
+                <Sidebar handleSelection={this.handleSelectionChange} selectedId={this.state.selectedId} selectedName={this.state.selectedName}/>
+                <MainView handleSelection={this.handleSelectionChange} selectedId={this.state.selectedId} selectedName={this.state.selectedName}/>
 
                 <div className={styles.footerRight}>
 

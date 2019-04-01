@@ -9,7 +9,7 @@ export default class MainView extends React.Component<AppState> {
     render() {
         return(
             <div className={styles.main}>
-                Selected game: {this.props.selected}
+                Selected game: {this.props.selectedName} [ID: {this.props.selectedId}]
             </div>
         );
     }
