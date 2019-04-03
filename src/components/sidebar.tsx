@@ -20,22 +20,18 @@ export default class Sidebar extends React.Component<AppState> {
         this.handleSelection(id, name);
     }
 
-    // Adds a new GameComponent, TODO: generated from this.props
-    addGameComponent(id: string, name: string) {
-        return (
-            <GameComponent 
-                uid={id}
-                name={name}
-                onSelect={() => this.handleClick(id, name)}
-            />
-        );
-    }
-
     render() {
         return (
             <div className={styles.sidebar}>
-                {this.addGameComponent("1","name")}
-                {this.addGameComponent("2","name2")}
+                {
+                this.props.nodes.map((node) => {
+                    <GameComponent
+                        uid={node.id} 
+                        name={node.name}
+                        onSelect={() => this.handleClick(node.id, node.name)}>
+                    </GameComponent>
+                })
+                }
             </div>
         );
     }

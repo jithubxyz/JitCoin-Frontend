@@ -8,6 +8,8 @@ export type AppState = {
     selectedId: string;
     selectedName: string;
     handleSelection: Function;
+
+    nodes: { id: string, name: string }[];
 }
 
 export interface SelectionProps {
@@ -26,7 +28,8 @@ export default class App extends React.Component {
     public readonly state: AppState = {
         selectedId: "",
         selectedName: "",
-        handleSelection: this.handleSelectionChange
+        handleSelection: this.handleSelectionChange,
+        nodes: [{id: "1", name: "Eins"}, {id: "2", name: "Zwei"}] // TODO: Get from API
     }
 
     handleSelectionChange(id: string, name: string) {
@@ -44,8 +47,8 @@ export default class App extends React.Component {
 
                 </div>
 
-                <Sidebar handleSelection={this.handleSelectionChange} selectedId={this.state.selectedId} selectedName={this.state.selectedName}/>
-                <MainView handleSelection={this.handleSelectionChange} selectedId={this.state.selectedId} selectedName={this.state.selectedName}/>
+                <Sidebar handleSelection={this.handleSelectionChange} selectedId={this.state.selectedId} selectedName={this.state.selectedName} nodes={this.state.nodes}/>
+                <MainView handleSelection={this.handleSelectionChange} selectedId={this.state.selectedId} selectedName={this.state.selectedName} nodes={this.state.nodes}/>
 
                 <div className={styles.footerRight}>
 
