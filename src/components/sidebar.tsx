@@ -4,17 +4,11 @@ import ReactDOM from 'react-dom';
 let styles = require('../App.scss');
 
 export default class Sidebar extends React.Component<AppState> {
-    // TODO: Sidebar constructor gets API data of current games in an object array
-    constructor(props: any) {
-        super(props);
-        this.handleSelection = this.handleSelection.bind(this);
-    }
-
-    handleSelection(id: string, name: string) {
+    handleSelection = (id: string, name: string) => {
         this.props.handleSelection(id, name)
     }
 
-    handleClick(id: string,name: string) {
+    handleClick = (id: string,name: string) => {
         console.log("Wowee, id="+ id);
         this.setState({selected: id});
         this.handleSelection(id, name);
@@ -24,13 +18,14 @@ export default class Sidebar extends React.Component<AppState> {
         return (
             <div className={styles.sidebar}>
                 {
-                this.props.nodes.map((node) => {
+                this.props.nodes.map((node) => (
                     <GameComponent
+                        key={node.id}
                         uid={node.id} 
                         name={node.name}
                         onSelect={() => this.handleClick(node.id, node.name)}>
                     </GameComponent>
-                })
+                ))
                 }
             </div>
         );
