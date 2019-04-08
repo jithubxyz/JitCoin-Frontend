@@ -36,7 +36,8 @@
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
     "react-scripts": "2.1.5",
-    "typescript": "3.3.3"
+    "typescript": "3.3.3",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "concurrently": "^4.1.0",

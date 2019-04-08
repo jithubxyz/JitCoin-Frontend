@@ -14,6 +14,18 @@ export default class Sidebar extends React.Component<AppState> {
         this.handleSelection(id, name);
     }
 
+    handleDelete = (id: string) => {
+        var oldNodes = this.props.nodes;
+        // TODO: Change forEach to normal for loop to allow break condition if id is found
+        oldNodes.forEach((object,index) => {
+            if (object.id == id) {
+                oldNodes.splice(index,1);
+            }
+        });
+        var newNodes = oldNodes;
+        this.props.changeNodes(newNodes);
+    }
+
     render() {
         return (
             <div className={styles.sidebar}>
@@ -23,7 +35,9 @@ export default class Sidebar extends React.Component<AppState> {
                         key={node.id}
                         uid={node.id} 
                         name={node.name}
-                        onSelect={() => this.handleClick(node.id, node.name)}>
+                        onSelect={() => this.handleClick(node.id, node.name)}
+                        onDelete={() => this.handleDelete(node.id)}
+                    >
                     </GameComponent>
                 ))
                 }
@@ -38,7 +52,10 @@ class GameComponent extends React.Component<SelectionProps> {
             <React.Fragment>
                 <p>Name: {this.props.name}</p>
                 <button className={styles.TODO} onClick={() => this.props.onSelect()}>
-                    {this.props.name}
+                    Select
+                </button>
+                <button className={styles.TODO} onClick={() => this.props.onDelete()}>
+                    Delete
                 </button>
             </React.Fragment>
         );
