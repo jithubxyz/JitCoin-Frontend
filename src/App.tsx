@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Sidebar from './components/sidebar';
 import MainView from './components/mainView';
+import * as UIControllers from "./UIControllers";
 
 let styles = require('./App.scss');
 const uuidv4 = require('uuid/v4');
@@ -34,7 +35,7 @@ export default class App extends React.Component {
         selectedName: "",
         handleSelection: this.handleSelectionChange,
         changeNodes: this.changeNodes,
-        nodes: [] // TODO: Get from API
+        nodes: [] // TODO: Get from API (only nodes in progress are required)
     }
 
     handleSelectionChange(id: string, name: string) {
@@ -64,11 +65,14 @@ export default class App extends React.Component {
         return (
             <div className={styles.gridContainer}>
                 <div className={styles.headbarLeft}>
-                    <button onClick={() => this.addGame("roulette")}>Add Roulette</button>
-                    <button onClick={() => this.addGame("slots")}>Add Slots</button>
+
                 </div>
                 <div className={styles.headbarRight}>
-
+                <button className={styles.addGame} onClick={() => this.addGame("roulette")}>Add Roulette</button>
+                    <button className={styles.addGame} onClick={() => this.addGame("slots")}>Add Slots</button>
+                    <div className={styles.wallet}>
+                        <p className={UIControllers.getBalanceC()}>{UIControllers.getBalance()} JTC</p>
+                    </div>
                 </div>
 
                 <Sidebar handleSelection={this.handleSelectionChange} changeNodes={this.changeNodes} selectedId={this.state.selectedId} selectedName={this.state.selectedName} nodes={this.state.nodes}/>
