@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Sidebar from './components/sidebar';
 import MainView from './components/mainView';
+import Modal from "./components/userModal";
 import * as UIControllers from "./UIControllers";
 
 let styles = require('./App.scss');
@@ -68,8 +69,11 @@ export default class App extends React.Component {
 
                 </div>
                 <div className={styles.headbarRight}>
-                <button className={styles.addGame} onClick={() => this.addGame("roulette")}>Add Roulette</button>
-                    <button className={styles.addGame} onClick={() => this.addGame("slots")}>Add Slots</button>
+                <div className={styles.login}>
+                    <Modal/>
+                </div>
+                <button className={styles.button} onClick={() => this.addGame("roulette")}>Add Roulette</button>
+                    <button className={styles.button} onClick={() => this.addGame("slots")}>Add Slots</button>
                     <div className={styles.wallet}>
                         <p className={UIControllers.getBalanceC()}>{UIControllers.getBalance()} JTC</p>
                     </div>
