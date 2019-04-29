@@ -1,8 +1,16 @@
 import * as React from 'react';
 import Popup from 'reactjs-popup';
 
+function sendRequest() {
+}
+
+function updateInputValue(evt: any) {
+    // TODO send input value from form to userModalState (not implemented yet) 
+    //so sendRequest can get it's content from there
+}
+
 const contentStyle = {
-    maxWidth: "600px",
+    maxWidth: "300px",
     width: "90%",
     height: "500px"
 };
@@ -12,26 +20,38 @@ export default () => (
         {close => (
             <div className="modal">
                 <a className="close" onClick={close}>&times;</a>
-                <div className="header"> Modal Title </div>
+                <div className="header"> Register / Login </div>
                 <div className="content">
                     {' '}
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, a nostrum.
-                    Dolorem, repellat quidem ut, minima sint vel eveniet quibusdam voluptates
-                    delectus doloremque, explicabo tempore dicta adipisci fugit amet dignissimos?
-                </div>
-                <div className="actions">
-                    <Popup
-                        trigger={<button className="button"> Trigger </button>}
-                        position="top center"
-                        closeOnDocumentClick
-                    >
-                        <span>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae
-                            magni omnis delectus nemo, maxime molestiae dolorem numquam
-                            mollitia, voluptate ea, accusamus excepturi deleniti ratione
-                            sapiente! Laudantium, aperiam doloribus. Odit, aut.
+                    <p>
+                        You can login into an existing user account with your passphrase or
+                        create a new user. Since the users in the Blockchain are anonymous,
+                        no username/email is required. The passphrase you choose functions as
+                        your private wallet key, so don't share it with anyone.
+                    </p>
+                    <div className="form">
+                        <input placeholder="Passphrase" type="password" id="pw" onChange={evt => updateInputValue(evt)}/>
+                        <Popup
+                            trigger={<button className="button" onClick={() => sendRequest()}> Register </button>}
+                            position="bottom right"
+                            on="hover"
+                            closeOnDocumentClick
+                        >
+                            <span>
+                                Registers a new user
                         </span>
-                    </Popup>
+                        </Popup>
+                        <Popup
+                            trigger={<button className="button"> Login </button>}
+                            position="bottom right"
+                            on="hover"
+                            closeOnDocumentClick
+                        >
+                            <span>
+                                Login into your account
+                            </span>
+                        </Popup>
+                    </div>
                 </div>
             </div>
         )}
