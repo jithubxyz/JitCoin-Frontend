@@ -1,7 +1,19 @@
 import * as React from 'react';
 import Popup from 'reactjs-popup';
 
+// Start IpcRenderer import
+import { IpcRenderer } from 'electron';
+declare global {
+  interface Window {
+    ipcRenderer: IpcRenderer
+  }
+}
+
+export const { ipcRenderer } = window;
+// End IpcRenderer import
+
 function sendRequest() {
+    window.ipcRenderer.send('walletRequest')
 }
 
 function updateInputValue(evt: any) {
@@ -9,6 +21,12 @@ function updateInputValue(evt: any) {
     //so sendRequest can get it's content from there
 }
 
+// State needed for updating/getting the input form content
+export type UserModalState = {
+    input: string;
+}
+
+// Popup Style Overwriting
 const contentStyle = {
     maxWidth: "300px",
     width: "90%",

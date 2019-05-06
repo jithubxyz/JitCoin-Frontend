@@ -1,7 +1,8 @@
-import { app, BrowserWindow, remote, Menu, MenuItem } from 'electron';
+import { app, BrowserWindow, remote, Menu, MenuItem, ipcMain } from 'electron';
 import * as path from 'path';
 import * as isDev from 'electron-is-dev';
 import * as process from 'process';
+import Axios, * as axios from 'axios';
 
 if (isDev) {
   import('electron-compile')
@@ -22,6 +23,7 @@ const createWindow = () => {
     darkTheme: true,
     webPreferences: {
       nodeIntegration: false,
+      preload: __dirname + '/preload.js'
     },
   });
 
@@ -74,3 +76,15 @@ app.on('activate', () => {
     createWindow();
   }
 });
+
+
+// Create the request for user verification/initWallet via Axios
+ipcMain.on("walletRequest", function (event) {
+  Axios.post("http://localhost:7179/length") // length is used for debugging purposes here
+  .then((response) => {
+    console.log(response.data); // TODO: send back to render process(?)
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+})

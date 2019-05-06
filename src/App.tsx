@@ -7,22 +7,22 @@ import * as UIControllers from "./UIControllers";
 let styles = require('./App.scss');
 const uuidv4 = require('uuid/v4');
 
+// The global App state, containing info about the current selection (getting passed to child components)
 export type AppState = {
     selectedId: string;
     selectedName: string;
     handleSelection: Function;
     changeNodes: Function;
 
-    nodes: { id: string, name: string }[];
+    nodes: { id: string, name: string }[]; // Node array is used to create GameComponents dynamically
 }
-
+// The props getting passed to GameProps
 export interface SelectionProps {
     uid: string;
     name: string;
     onSelect: Function;
     onDelete: Function;
 }
-
 
 export default class App extends React.Component {
     constructor(props: any) {
@@ -31,6 +31,7 @@ export default class App extends React.Component {
         this.changeNodes = this.changeNodes.bind(this)
     }
 
+    // Create actual state from above type
     public readonly state: AppState = {
         selectedId: "",
         selectedName: "",
@@ -39,15 +40,18 @@ export default class App extends React.Component {
         nodes: [] // TODO: Get from API (only nodes in progress are required)
     }
 
+    // Passses selections to state (thus updating the children)
     handleSelectionChange(id: string, name: string) {
         this.setState({selectedId: id});
         this.setState({selectedName: name})
     }
 
+    // Sets the node array state to the updated version
     changeNodes(newNodes: { id: string, name: string }[]) {
         this.setState({nodes: newNodes})
     }
 
+    // Pushes new content into the nodes array
     addGame(game: string) {
         var nodes: { id: string, name: string }[] = this.state.nodes;
         switch (game) {
@@ -62,6 +66,7 @@ export default class App extends React.Component {
         }
     }
 
+    // Page layout
     render() {
         return (
             <div className={styles.gridContainer}>
@@ -70,7 +75,7 @@ export default class App extends React.Component {
                 </div>
                 <div className={styles.headbarRight}>
                 <div className={styles.login}>
-                    <Modal/>
+                    <Modal/> {/* The popup modal for user login/register */}
                 </div>
                 <button className={styles.button} onClick={() => this.addGame("roulette")}>Add Roulette</button>
                     <button className={styles.button} onClick={() => this.addGame("slots")}>Add Slots</button>
