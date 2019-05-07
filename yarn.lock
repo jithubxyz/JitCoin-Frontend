@@ -945,6 +945,13 @@
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/@types/unist/-/unist-2.0.3.tgz#9c088679876f374eb5983f150d4787aa6fb32d7e"
 
+"@types/uuid@^3.4.4":
+  version "3.4.4"
+  resolved "https://registry.yarnpkg.com/@types/uuid/-/uuid-3.4.4.tgz#7af69360fa65ef0decb41fd150bf4ca5c0cefdf5"
+  integrity sha512-tPIgT0GUmdJQNSHxp0X2jnpQfBSTfGxUMc/2CXBU2mnyTFVYVa2ojpoQ74w0U2yn2vw3jnC640+77lkFFpdVDw==
+  dependencies:
+    "@types/node" "*"
+
 "@types/vfile-message@*":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@types/vfile-message/-/vfile-message-1.0.1.tgz#e1e9895cc6b36c462d4244e64e6d0b6eaf65355a"
@@ -3489,7 +3496,7 @@ data-urls@^1.0.0:
     whatwg-mimetype "^2.2.0"
     whatwg-url "^7.0.0"
 
-date-fns@^1.23.0:
+date-fns@^1.23.0, date-fns@^1.30.1:
   version "1.30.1"
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-1.30.1.tgz#2e71bf0b119153dbb4cc4e88d9ea5acfb50dc05c"
 

@@ -27,3 +27,27 @@ export const Error: React.FunctionComponent<{ message: string }> = ({ message}) 
         {message}
     </ErrorWrapper>
 )
+
+export const Wrapper = styled.div`
+    margin-left: 20px;
+`;
+
+export const ActionButton = styled.button`
+    border-radius: 5px;
+    border: 2px solid #8ad0ff;
+    padding: 10px;
+    background: #e0f3ff;
+    margin-bottom: 10px;
+    cursor: pointer;
+
+    margin-right: 10px;
+
+    &:disabled {
+        background: #dbdbdb;
+    }
+`;
+
+export const ActionWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+`;

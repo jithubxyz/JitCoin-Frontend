@@ -3,6 +3,7 @@ import Sidebar from './components/sidebar';
 import MainView from './components/mainView';
 import Modal from "./components/userModal";
 import * as UIControllers from "./UIControllers";
+import { Switcher } from './components/demo/Switcher';
 
 let styles = require('./App.scss');
 const uuidv4 = require('uuid/v4');
@@ -70,22 +71,13 @@ export default class App extends React.Component {
     render() {
         return (
             <div className={styles.gridContainer}>
-                <div className={styles.headbarLeft}>
-
-                </div>
-                <div className={styles.headbarRight}>
-                <div className={styles.login}>
-                    <Modal/> {/* The popup modal for user login/register */}
-                </div>
-                <button className={styles.button} onClick={() => this.addGame("roulette")}>Add Roulette</button>
-                    <button className={styles.button} onClick={() => this.addGame("slots")}>Add Slots</button>
-                    <div className={styles.wallet}>
-                        <p className={UIControllers.getBalanceC()}>{UIControllers.getBalance()} JTC</p>
-                    </div>
-                </div>
+                <div className={styles.headbarLeft}></div>
+                <div className={styles.headbarRight}></div>
 
                 <Sidebar handleSelection={this.handleSelectionChange} changeNodes={this.changeNodes} selectedId={this.state.selectedId} selectedName={this.state.selectedName} nodes={this.state.nodes}/>
-                <MainView handleSelection={this.handleSelectionChange} changeNodes={this.changeNodes} selectedId={this.state.selectedId} selectedName={this.state.selectedName} nodes={this.state.nodes}/>
+                
+                {/* For demo purposes */}
+                <Switcher />
 
                 <div className={styles.footerRight}>
 

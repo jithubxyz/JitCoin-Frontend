@@ -3,8 +3,8 @@
   .gridContainer {
     position: absolute;
     display: grid;
-    grid-template-columns: 230px 1fr;
-    grid-template-rows: 50px 1fr 20px;
+    grid-template-columns: 130px 1fr;
+    grid-template-rows: 0px 1fr 1px;
     grid-template-areas: "headbar-left headbar-right"
         "sidebar main"
         "footer-left footer-right";
@@ -51,6 +51,10 @@
     background-color: white;
     /* border-right: 1px solid rgba(0,0,0,.12); */
     box-shadow: 2px 4px 10px rgba(0,0,0,.2);
+    background-image: url('https://i1.wp.com/www.datadriveninvestor.com/wp-content/uploads/2019/01/crypto-derivatives-better-investment-than-buying-crypto-coins-x486_1px.jpeg?fit=864%2C486&ssl=1');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50%;
   }
 
   .main {

@@ -25,6 +25,8 @@ const createWindow = () => {
       nodeIntegration: false,
       preload: __dirname + '/preload.js'
     },
+    title: 'JitCoin',
+    icon: path.join(__dirname, 'public/icons/coin.png')
   });
 
   // and load the index.html of the app.

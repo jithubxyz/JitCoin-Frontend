@@ -1,9 +1,9 @@
 export interface Block {
-    header: Body;
-    body: Header;
+    header: Header;
+    body: Body;
 }
 
-interface Body {
+interface Header {
     version: number;
     previousBlockHash: string;
     merkleTree: string;
@@ -13,7 +13,7 @@ interface Body {
     gameType: number;
 }
 
-interface Header {
+interface Body {
     coinbaseTransaction: any;
     transactions: any[];
 }
