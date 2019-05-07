@@ -3,7 +3,6 @@ import * as path from 'path';
 import * as isDev from 'electron-is-dev';
 import * as process from 'process';
 import Axios, * as axios from 'axios';
-import console = require('console');
 
 if (isDev) {
   import('electron-compile')
