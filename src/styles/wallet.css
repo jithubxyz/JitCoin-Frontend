@@ -1,0 +1,10 @@
+.wallet-form input {
+    margin-right: 10px;
+    height: 25px;
+    font-size: 18px;
+}
+
+.wallet-input {
+    display: flex;
+    align-items: baseline;
+}

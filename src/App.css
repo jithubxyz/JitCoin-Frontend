@@ -1,2 +1,132 @@
+:local {
+  /* Grid Areas */ }
+  :local .gridContainer {
+    position: absolute;
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    grid-template-rows: 0px 1fr 1px;
+    grid-template-areas: "headbar-left headbar-right" "sidebar main" "footer-left footer-right";
+    width: 100%;
+    height: 100%; }
+  :local .headbarLeft {
+    grid-area: headbar-left;
+    background-color: white;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12); }
+  :local .headbarRight {
+    grid-area: headbar-right;
+    background-color: white;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12); }
+    :local .headbarRight .login {
+      float: right; }
+    :local .headbarRight .wallet {
+      float: right;
+      padding-left: 5px;
+      padding-right: 5px;
+      background-color: #eeeeee; }
+      :local .headbarRight .wallet:hover {
+        background-color: #bdbdbd; }
+      :local .headbarRight .wallet .balanceG {
+        color: green; }
+      :local .headbarRight .wallet .balanceR {
+        color: darkred; }
+  :local .sidebar {
+    grid-area: sidebar;
+    background-color: white;
+    /* border-right: 1px solid rgba(0,0,0,.12); */
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+    background-image: url("https://i1.wp.com/www.datadriveninvestor.com/wp-content/uploads/2019/01/crypto-derivatives-better-investment-than-buying-crypto-coins-x486_1px.jpeg?fit=864%2C486&ssl=1");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50%; }
+  :local .main {
+    grid-area: main; }
+  :local .footerLeft {
+    grid-area: footer-left;
+    background-color: #eeeeee;
+    border-top: 1px solid rgba(0, 0, 0, 0.12); }
+  :local .footerRight {
+    grid-area: footer-right;
+    background-color: #eeeeee;
+    border-top: 1px solid rgba(0, 0, 0, 0.12); }
+  :local html,
+  :local body {
+    width: 100%;
+    height: 100%;
+    margin: 0; }
+  :local .button {
+    font-family: "Roboto", Arial, sans-serif;
+    color: #000000;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 2em;
+    letter-spacing: 1.5px;
+    font-size: 1em;
+    outline: none;
+    position: relative;
+    font-size: 14px;
+    border: 3px solid #cfcece;
+    background-color: #ffffff;
+    border-radius: 15px 15px 15px 15px;
+    transition: all 0.3s; }
+  :local .button:hover,
+  :local .button.hover {
+    border-color: #2980b9; }
+
+.button {
+  font-family: "Roboto", Arial, sans-serif;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 2em;
+  letter-spacing: 1.5px;
+  font-size: 1em;
+  outline: none;
+  position: relative;
+  font-size: 14px;
+  border: 3px solid #cfcece;
+  background-color: #ffffff;
+  border-radius: 15px 15px 15px 15px;
+  transition: all 0.3s; }
+
+.button:hover,
+.button.hover {
+  border-color: #2980b9; }
+
+.modalButton {
+  width: 50px;
+  height: 50px;
+  background-image: url("./img/login.png");
+  background-size: 35px;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.modal {
+  font-size: 12px; }
+  .modal .header {
+    width: 100%;
+    border-bottom: 1px solid gray;
+    font-size: 18px;
+    text-align: center;
+    padding: 5px; }
+  .modal .content {
+    width: 100%;
+    padding: 10px 5px; }
+  .modal .actions {
+    width: 100%;
+    padding: 10px 5px;
+    margin: auto;
+    text-align: center; }
+  .modal .close {
+    cursor: pointer;
+    position: absolute;
+    display: block;
+    padding: 2px 5px;
+    line-height: 20px;
+    right: -10px;
+    top: -10px;
+    font-size: 24px;
+    background: #ffffff;
+    border-radius: 18px;
+    border: 1px solid #cfcece; }
 
 /*# sourceMappingURL=App.css.map */

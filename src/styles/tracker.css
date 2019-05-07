@@ -1,0 +1,33 @@
+ul {
+    padding: 0;
+}
+
+.tracker-client {
+    padding: 4px;
+    display: flex;
+    align-items: center;
+}
+
+.tracker-client > .status {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 6px;
+}
+
+.status.status-green {
+    background-color: #a3ff71
+}
+
+.status.status-blue {
+    background-color: #55d2ff;
+}
+
+.tracker-client .you-sign {
+    opacity: 0.8;
+}
+
+.tracker-client .client-id {
+    font-family: monospace;
+}

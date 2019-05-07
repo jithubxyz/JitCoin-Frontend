@@ -1,6 +1,5 @@
 import * as React from 'react';
 import App, { AppState, SelectionProps } from "../App";
-import ReactDOM from 'react-dom';
 let styles = require('../App.scss');
 
 export default class Sidebar extends React.Component<AppState> {
@@ -51,10 +50,10 @@ class GameComponent extends React.Component<SelectionProps> {
         return (
             <React.Fragment>
                 <p>Name: {this.props.name}</p>
-                <button className={styles.TODO} onClick={() => this.props.onSelect()}>
+                <button className={styles.button} onClick={() => this.props.onSelect()}>
                     Select
                 </button>
-                <button className={styles.TODO} onClick={() => this.props.onDelete()}>
+                <button className={styles.button} onClick={() => this.props.onDelete()}>
                     Delete
                 </button>
             </React.Fragment>

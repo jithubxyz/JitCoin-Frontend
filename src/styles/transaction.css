@@ -1,0 +1,28 @@
+.show {
+    color: rgba(0,0,0,0.8);
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.transactions {
+    padding-top: 10px;
+}
+
+.transaction {
+    margin-bottom: 15px;
+}
+
+.meta .item {
+    margin-right: 10px;
+    padding: 2px;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 20px;
+}
+
+.collapse {
+    margin-left: 5px;
+    font-size: 0.85rem;
+    cursor: pointer;
+}

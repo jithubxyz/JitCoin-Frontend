@@ -1,0 +1,59 @@
+.block {
+    border-radius: 5px;
+    border: 2px solid #8ad0ff;
+    padding: 10px;
+
+    background: #e0f3ff;
+
+    margin-bottom: 10px;
+}
+
+.block.unmined {
+    border: 2px solid #ff8a95;
+    background: #ffe0e0;
+}
+
+.block.unmined .meta > .hash {
+    background: #ffaebc;
+}
+
+.block .title {
+    margin-top: 0;
+    margin-bottom: 5px;
+
+    font-size: 18px;
+}
+
+.block .meta > .hash {
+    background: #aeddff;
+    border-radius: 2px;
+    font-family: monospace;
+
+    padding: 2px;
+    padding-left: 5px;
+    padding-right: 5px;
+
+    margin-right: 10px;
+}
+
+.unmined-label {
+    opacity: 0.8;
+    font-size:0.85rem;
+}
+
+.fade-in {
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 100ms;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}

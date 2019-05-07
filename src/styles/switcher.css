@@ -1,0 +1,14 @@
+.switcher-items {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.switcher-items > a {
+    padding-left: 15px;
+    padding-right: 15px;
+    cursor: pointer;
+}
+
+.switcher-container {
+    padding: 10px;
+}
