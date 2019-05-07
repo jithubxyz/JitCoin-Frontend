@@ -3,6 +3,7 @@ import * as path from 'path';
 import * as isDev from 'electron-is-dev';
 import * as process from 'process';
 import Axios, * as axios from 'axios';
+import console = require('console');
 
 if (isDev) {
   import('electron-compile')
@@ -78,13 +79,14 @@ app.on('activate', () => {
 });
 
 
-// Create the request for user verification/initWallet via Axios
-ipcMain.on("walletRequest", function (event) {
-  Axios.post("http://localhost:7179/length") // length is used for debugging purposes here
+const LOCAL_ENDPOINT = 'http://localhost:7179';
+
+ipcMain.on("getLastBlock", function(evt) {
+  Axios.get(`${LOCAL_ENDPOINT}/lastBlock`)
   .then((response) => {
-    console.log(response.data); // TODO: send back to render process(?)
+    mainWindow.webContents.send("lastBlockReceived", response)
   })
   .catch((error) => {
-    console.error(error);
-  });
-})
+    console.error(error)
+  })
+});

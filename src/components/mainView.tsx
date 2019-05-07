@@ -2,6 +2,18 @@ import * as React from 'react';
 import App, { AppState } from "../App";
 import { getLastBlock } from '../api/endpoints';
 import { Error } from './shared';
+
+// Start IpcRenderer import
+import { IpcRenderer } from 'electron';
+declare global {
+  interface Window {
+    ipcRenderer: IpcRenderer
+  }
+}
+
+export const { ipcRenderer } = window;
+// End IpcRenderer import
+
 let styles = require('../App.scss');
 
 export default class MainView extends React.Component<AppState, { lastBlock: any }> {
@@ -12,16 +24,24 @@ export default class MainView extends React.Component<AppState, { lastBlock: any
     }
 
     componentDidMount() {
-        getLastBlock().then((content) => {
-            this.setState({ lastBlock: content });
-        });
+        ipcRenderer.send("getLastBlock"); // Requests the last block from the API
+        ipcRenderer.on("lastBlockReceived", (event: any, response: any) => {
+            this.setState({ lastBlock: response.data }); // Sets the lastBlock state to the API response (no custom model!)
+            console.log(response.data);
+        })
     }
     render() {
-        if (this.state.lastBlock) {
-            return <div>{this.state.lastBlock.header.hash}</div>
-        }
-        if (this.state.lastBlock === null) {
-            return <Error message="No last block found"></Error>
+        
+        if (this.state.lastBlock) { // Does the state exist? Only true after componentDidMount().
+            if (this.state.lastBlock.code == 0) { // Check if the API response is a success
+                return(
+                    <div className={styles.main}>
+                        <p>{this.state.lastBlock.data[0].hash}</p>
+                    </div>)
+            }
+            else {
+                return <Error message={this.state.lastBlock.message}></Error> // Else, display the API error message
+            }
         }
         return(
             <div className={styles.main}>
