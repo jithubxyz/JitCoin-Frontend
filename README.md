@@ -1,44 +1,42 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the frontend for JitCoin, made with [React](https://reactjs.org/) and [Electron](https://electronjs.org/), written in TypeScript
 
-## Available Scripts
+It currently consists of a blockchain "explorer" with the ability to view, add, and mine the blocks in the JitCoin blockchain.
 
-In the project directory, you can run:
+This also contains currently unused code & designs created in context of the end goal, a casino application based on blockchain verification. This is currently not implemented, resulting in nothing to see in this original frontend and it therefore being inactive on the master branch.
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Requires [NodeJS](https://nodejs.org) and [Yarn](https://yarnpkg.com/).
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+In the project directory, run:
 
-### `npm test`
+#### `yarn`
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This installs the necessary modules to build the app.
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Development / Deployment
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+### In order to function properly, you also have to install & run the [JitCoin Backend](https://github.com/jithubxyz/JitCoin) beforehand, since there currently is no bundled application available.
+#### Depending on usage, the [Tracker](https://github.com/jithubxyz/tracker) will also be needed.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### `yarn run dev` / `yarn dev`
 
-### `npm run eject`
+Starts the development server and electron. Default is on http://localhost:3000, but this app does not work correctly without Electron, so viewing in browser gives no proper result.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+The app auto-reloads on file edits and __does not have to be closed/restarted__ except on major errors or changes.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### `yarn run build` / `yarn build`
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Builds the app to be run without a development server.
+Does not create an executable as of now.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Usage
+- __Create your wallet__
+  - Choose a safe passphrase only you know. This initiates your wallet (and in theory grants everyone who knows the passphrase access to it).
+- __Add transactions__
+  - One block can hold 10 transactions, all need to be full for the block to be mined.
+- __Mine block__
+  - Once the block is full, it needs to be mined so a new block can be added.
+  - Mining can be a lengthy process, so don't worry if it takes a while.
